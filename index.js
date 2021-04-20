@@ -9,9 +9,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const password = process.env.DB_PASS;
+const user = process.env.DB_USER;
 const MongoClient = require("mongodb").MongoClient;
 const { json } = require("body-parser");
-const uri = `mongodb+srv://yasin:${password}@cluster0.styhn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${user}:${password}@cluster0.styhn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
